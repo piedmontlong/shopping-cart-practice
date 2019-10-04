@@ -2,18 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { InputbasketComponent } from './inputbasket.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog'; 
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 describe('InputbasketComponent', () => {
   let component: InputbasketComponent;
   let fixture: ComponentFixture<InputbasketComponent>;
-
+  const mockDialogRef = {
+    close: jasmine.createSpy('close')
+  };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ InputbasketComponent ],
       imports: [MatDialogModule, ReactiveFormsModule],
       providers: [
+        { provide: MatDialogRef, useValue: mockDialogRef },
         { provide: MAT_DIALOG_DATA, useValue: {} } // add here
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

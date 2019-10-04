@@ -19,9 +19,9 @@ export class InputbasketComponent implements OnInit {
   itemName: AbstractControl;
   price: AbstractControl;
   itemsList: Array<basketItemModel>;
-  dialogRef: MatDialogRef<InputbasketComponent>;
-  
-  constructor(private fb: FormBuilder
+  //dialogRef: MatDialogRef<InputbasketComponent>;
+
+  constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<InputbasketComponent>
     ) {
     this.form = fb.group({
       'unit': [1, Validators.required],
@@ -54,7 +54,7 @@ export class InputbasketComponent implements OnInit {
   }
 
   cancelClick() {
-    this.dialogRef.close(true);
+    this.dialogRef.close();
   }
   submitBasket() {
     console.log(this.baskets.length);

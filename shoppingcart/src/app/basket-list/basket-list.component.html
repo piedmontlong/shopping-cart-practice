@@ -1,0 +1,13 @@
+<h2>Baskets
+  <button mat-raised-button (click)="openAddForm()"><i class="material-icons">add</i>New</button>
+</h2>
+<span>&nbsp;&nbsp;</span>
+<mat-card style="margin-bottom: 10px;" *ngFor="let basket of baskets; let i = index;">
+  <h4>Shopping Basket {{i+1}}</h4>
+  <div *ngFor="let item of basket;">
+    <p>{{item.unit}} {{item.name}} at {{item.price}}</p>
+  </div>
+  <button mat-raised-button (click)="remove(basket, i)">
+    Remove
+  </button>
+</mat-card>

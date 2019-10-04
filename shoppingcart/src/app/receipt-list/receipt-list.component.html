@@ -1,0 +1,10 @@
+<h2>Outputs</h2>
+
+<mat-card style="margin-bottom: 10px;" *ngFor="let receiptItemTaxTotalItem of receiptItemTaxTotal.receiptItemTaxTotalItemList; let i = index;">
+  <h4>Output {{i+1}}</h4>
+  <div *ngFor="let item of receiptItemTaxTotalItem.receiptItemList;">
+    <p>{{item.unit}} {{item.name}}: {{item.price.toFixed(2)}}</p>
+  </div>
+  <p>Sales Taxes:{{receiptItemTaxTotalItem.saleTax}}</p>
+  <p>Total:{{receiptItemTaxTotalItem.totalPrice}}</p>
+</mat-card>

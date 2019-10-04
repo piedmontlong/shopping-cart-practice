@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="form" >
+     <input [formControl]="unit" type="number"  name="unit" placeholder="Unit" > <br/> 
+     <input mat-checkbox [formControl]="exempt" type="checkbox"  name="exempt" > Exempt<br/> 
+     <input mat-checkbox [formControl]="imported" type="checkbox"  name="imported" >Imported<br/>  
+     <input [formControl]="itemName" type="text"  name="itemName" placeholder="Item Name" > 
+     <input [formControl]="price" type="number"  name="price" placeholder="Price" > 
+ 
+     <button (click)="addItem()">Add Single Item</button>
+     <br/>
+     <div *ngFor="let item of itemsList; let i = index;">
+      <p>Unit: {{item.unit}}, Name: {{item.name}}, Price: {{item.price}}</p>
+     </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button (click)="cancelClick()">Cancel</button>
+      <button mat-raised-button cdkFocusInitial mat-dialog-close [disabled]="!this.form.valid" (click)="submitBasket()">Add Basket</button>
+    </div>
+  </form>
+</div>
